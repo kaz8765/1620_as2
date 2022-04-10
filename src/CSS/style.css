@@ -115,14 +115,14 @@ i {
   color: var(--text);
 }
 
-textarea {
+/* textarea {
   caret-color: var(--not-red);
   border: none;
   border-bottom: 2px solid var(--text);
   outline: none;
   resize: none;
   overflow: auto;
-}
+} */
 
 footer {
   display: flex;
@@ -133,4 +133,44 @@ footer {
 footer p {
   color: var(--text);
   font-size: var(--lrg-txt);
+}
+
+.write-note-area{
+  width: 1200px;
+}
+textarea {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  font-family: 'IBM Plex Serif', serif;
+  font-family: 'Open Sans', sans-serif;
+  /* size: 10px; */
+  padding: 100px;
+  resize: none;
+  /* width:200px; */
+  line-height: 1.5;
+  border-radius: 5px;
+  border: none;
+  color: #191724;
+
+  
+}
+
+
+.options {
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.a {
+  font-size: 2.5rem;
+  order: 0;
+}
+
+.b {
+  font-size: 2.5rem;
+  order: 1;
+  padding-left: 25px;
 }
