@@ -1,3 +1,13 @@
+const x=document.querySelector('input[type="checkbox"]')
+
+
+function test(evt){
+console.log(x.checked)
+}
+
+x.addEventListener('click',test)
+
+
 //List of notes
 const notesList = [
     { 
@@ -15,11 +25,12 @@ noteList.innerHTML='<li>'+notesList[0].title+'</li>'
 const textArea=`
 <textarea id="note" name="story" rows="5" cols="33" enabled>
 </textarea>
+
 <div class="options">
     <div class="a">save</div>
     <div class="b">cancel</div>
 </div>
-</div>`
+`
 
 //Target + sign 
 const plusSign=document.querySelector('i')
@@ -70,7 +81,8 @@ function createNote(evt){
 //Selects text area
   const textArea=document.querySelector('textarea#note')
 //Saves entire text
-  const textAreaValue=textArea.value
+// while(){ 
+const textAreaValue=textArea.value
 //Splits text into an array
   const noteArray=textAreaValue.split('\n')
 //Assigns first line as title
@@ -84,6 +96,7 @@ function createNote(evt){
   
   noteList.insertAdjacentHTML('afterbegin','<li>'+noteTitle +'</li>')
   
+// }
 
 }
 
@@ -94,9 +107,9 @@ const noteSelect=document.querySelector('.notes-list')
 
 function listNote(evt){
 
-
-// showNote.innerHTML=''
-//   noteWriteArea.innerHTML=''
+ 
+showNote.innerHTML=''
+  noteWriteArea.innerHTML=''
 for(const index in notesList){
   
   
@@ -128,6 +141,7 @@ closeButton.addEventListener('click', removeNote)
 }
 
 noteSelect.addEventListener('click',listNote)
+
 
 
 
