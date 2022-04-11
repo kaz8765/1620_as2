@@ -36,7 +36,7 @@ const noteWriteArea=document.querySelector('.write-note-area')
 
 
 function displayNote(evt){
-  
+  showNote.innerHTML=''
   noteWriteArea.insertAdjacentHTML('beforeend',textArea)
 
   //Target new DOM objects the cancel and save button
@@ -57,9 +57,10 @@ plusSign.addEventListener('click',displayNote,{once:true});
 
 function removeNote(evt){
   noteWriteArea.innerHTML=''
+  showNote.innerHTML=''
 //Re-initialize the display area when clicking + after closing by save or cancel
 
-  plusSign.addEventListener('click',displayNote)
+  plusSign.addEventListener('click',displayNote,{once:true})
   }
 
   
@@ -74,15 +75,60 @@ function createNote(evt){
   const noteArray=textAreaValue.split('\n')
 //Assigns first line as title
   const noteTitle=noteArray[0]
+  noteArray.shift()
   
-  notesList.push({title:noteTitle,noteBody:textAreaValue, id:notesList.length+1})
+  restOfNoteBody=noteArray.join(' ')
+  
+  notesList.push({title:noteTitle,noteBody:restOfNoteBody, id:notesList.length+1})
 
-  console.log(notesList)
+  
   noteList.insertAdjacentHTML('afterbegin','<li>'+noteTitle +'</li>')
-  const styling=document.querySelector('.notes-list li')
-  styling.classList.add('.notes-list li')
- 
+  
 
 }
+
+
+//Target area to display note in 
+const showNote=document.querySelector('.read-note-area')
+const noteSelect=document.querySelector('.notes-list')
+
+function listNote(evt){
+
+
+// showNote.innerHTML=''
+//   noteWriteArea.innerHTML=''
+for(const index in notesList){
+  
+  
+  
+  if(notesList[index].title ==evt.target.innerText){
+    
+
+    showNote.insertAdjacentHTML('afterbegin',
+
+    `
+    <textarea id="note" name="story" rows="5" cols="33" disabled>`
+    
+    +notesList[index].title+'\n'+notesList[index].noteBody+
+    
+    `</textarea>
+    <div class="options">
+        <div class="c">close</div>
+    </div>
+    </div>`
+    )
+    
+
+
+  }
+  
+}
+const closeButton=document.querySelector('.c')
+closeButton.addEventListener('click', removeNote)
+}
+
+noteSelect.addEventListener('click',listNote)
+
+
 
 
