@@ -10,16 +10,21 @@
   --hdr-hght:  5rem;
   --lrg-txt:   2.2rem;
 }
-
+/* --drk-white  --not-white */
 .light-theme {
-  --bg-color: var(--not-white);
-  --bg-side:  var(--drk-white);
+  --bg-color: var(--drk-white);
+  --bg-side:  var(--not-white);
   --text:     var(--not-black);
+  --text-area: var(--not-white);
+  
 }
 
-/* .dark-theme { */
-/*   --bg-color: var(--not-grey); */
-/* } */
+.dark-theme {
+--bg-color: var(--not-grey);
+--bg-side:  var(--muted);
+  --text:     var(--drk-white);
+  --text-area: var(--drk-white); 
+ }
 
 * {
   margin: 0;
@@ -116,14 +121,7 @@ i {
   color: var(--text);
 }
 
-/* textarea {
-  caret-color: var(--not-red);
-  border: none;
-  border-bottom: 2px solid var(--text);
-  outline: none;
-  resize: none;
-  overflow: auto;
-} */
+
 
 footer {
   display: flex;
@@ -142,19 +140,36 @@ footer p {
 textarea {
   font-size: 2.5rem;
   letter-spacing: 1px;
-  font-family: 'IBM Plex Serif', serif;
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'IBM Plex Serif', serif; */
+  /* font-family: 'Open Sans', sans-serif; */
   /* size: 10px; */
-  padding: 100px;
+  padding: 95px;
+  
   resize: none;
   /* width:200px; */
   line-height: 1.5;
-  border-radius: 5px;
-  border: none;
-  color: #191724;
-
+  border-radius: 7px;
+  border:--not-black;
+  /* color: #191724; */
+  background-color:var(--text-area); 
+  overflow: auto;
+  /* outline:--not-black; */
+  border: 0.5px dotted var(--text);
+  position: relative;
+	top: 0px; left: 10px;
   
-}
+ }
+
+
+ /* textarea {
+  caret-color: var(--not-red);
+  border: none;
+  
+  
+  resize: none;
+  
+  
+} */
 
 
 .options {
@@ -163,6 +178,7 @@ textarea {
   flex-direction: row;
   justify-content: center;
   align-content: center;
+  color: var(--text);
 }
 
 .a {
@@ -173,11 +189,16 @@ textarea {
 .b {
   font-size: 2.5rem;
   order: 1;
-  padding-left: 25px;
+  padding-left: 75px;
 }
 
 .notes-list>li{
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  color: var(--text);
+  max-width: 10ch;
+  /* white-space: nowrap; */
+    overflow: visible;
+    text-overflow: ellipsis;
 } 
 
 .read-note-area>li {
@@ -189,7 +210,7 @@ textarea {
   display: flex;
   flex-direction: row;
   justify-content: right;
-  align-content: left;
+  /* align-content: left; */
   padding-right: 300px;
 }
 

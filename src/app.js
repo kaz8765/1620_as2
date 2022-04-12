@@ -1,11 +1,4 @@
-const x=document.querySelector('input[type="checkbox"]')
 
-
-function test(evt){
-console.log(x.checked)
-}
-
-x.addEventListener('click',test)
 
 
 //List of notes
@@ -27,9 +20,10 @@ const textArea=`
 </textarea>
 
 <div class="options">
-    <div class="a">save</div>
-    <div class="b">cancel</div>
+<div class="a">save</div>
+<div class="b">cancel</div>
 </div>
+
 `
 
 //Target + sign 
@@ -78,11 +72,15 @@ function removeNote(evt){
 //Function to store note 
 
 function createNote(evt){
+
+  
 //Selects text area
   const textArea=document.querySelector('textarea#note')
 //Saves entire text
 // while(){ 
 const textAreaValue=textArea.value
+
+if(textAreaValue!==''){
 //Splits text into an array
   const noteArray=textAreaValue.split('\n')
 //Assigns first line as title
@@ -95,6 +93,8 @@ const textAreaValue=textArea.value
 
   
   noteList.insertAdjacentHTML('afterbegin','<li>'+noteTitle +'</li>')
+
+}
   
 // }
 
@@ -141,6 +141,41 @@ closeButton.addEventListener('click', removeNote)
 }
 
 noteSelect.addEventListener('click',listNote)
+
+
+
+// Dark Mode
+function changeState(newTheme,oldTheme) {
+  const divone = document.querySelector('.main-container')
+
+  divone.classList.replace(oldTheme,newTheme)
+
+}
+
+
+const x=document.querySelector('input[type="checkbox"]')
+
+
+function test(evt){
+  
+if(x.checked==true){
+  
+     changeState("dark-theme","light-theme")
+     
+
+} else {
+  
+  changeState("light-theme","dark-theme")
+  
+}
+
+
+
+}
+
+x.addEventListener('click',test)
+
+
 
 
 
