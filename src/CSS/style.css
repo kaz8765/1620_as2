@@ -210,7 +210,7 @@ textarea {
   display: flex;
   flex-direction: row;
   justify-content: right;
-  /* align-content: left; */
+  
   padding-right: 300px;
 }
 
