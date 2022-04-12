@@ -145,7 +145,6 @@ textarea {
   resize: none;
   line-height: 1.5;
   border-radius: 7px;
-  border: --not-black;
   background-color: var(--text-area);
   overflow: auto;
   border: 0.5px dotted var(--text);
@@ -154,8 +153,6 @@ textarea {
   left: 10px;
 
 }
-
-
 
 
 .options {

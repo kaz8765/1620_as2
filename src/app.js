@@ -78,7 +78,7 @@ function createNote(evt) {
         const noteTitle = noteArray[0]
         noteArray.shift()
 
-        restOfNoteBody = noteArray.join(' ')
+        restOfNoteBody = noteArray.join('\n')
 
         notesList.push({
             title: noteTitle,
