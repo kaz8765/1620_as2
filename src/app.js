@@ -1,3 +1,4 @@
+'use strict';
 // List of notes
 const notesList = [{
         title: "first note",
@@ -78,7 +79,7 @@ function createNote(evt) {
         const noteTitle = noteArray[0]
         noteArray.shift()
 
-        restOfNoteBody = noteArray.join('\n')
+        const restOfNoteBody = noteArray.join('\n')
 
         notesList.push({
             title: noteTitle,
@@ -130,9 +131,9 @@ noteSelect.addEventListener('click', listNote)
 
 // Dark Mode
 function changeState(newTheme, oldTheme) {
-    const divone = document.querySelector('.main-container')
+    const divOne = document.querySelector('.main-container')
 
-    divone.classList.replace(oldTheme, newTheme)
+    divOne.classList.replace(oldTheme, newTheme)
 
 }
 
